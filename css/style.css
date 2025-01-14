@@ -1,0 +1,62 @@
+body {
+    background-color: #dedede;
+    padding: 5px;
+    margin: 15px;
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr; /* One column for mobile */
+    gap: 10px; /* 10px gap between items */
+}
+
+img {
+    border: 5px solid blue;
+    border-radius: 35px; /* Rounded images */
+    width: 100%; /* Full-width images */
+}
+
+@media (min-width: 772px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+    }
+
+    figure:last-child {
+        grid-column: span 2; /* Last figure takes both columns */
+        border-radius: 50%; /* Circular images */
+    }
+
+    img {
+        border-radius: 50%; /* Circular images */
+    }
+}
+
+@media (min-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* Three columns */
+    }
+
+    figure:nth-child(3n) {
+        grid-column: span 2; /* Every third figure spans both columns */
+    }
+
+    img {
+        border-radius: 0; /* Remove border-radius for large screens */
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto; /* Disable smooth scroll */
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    figure {
+        background-color: #333; /* Dark background for figures */
+        color: #f0e68c; /* Light yellowish font */
+        border-color: black; /* Black border */
+    }
+}
